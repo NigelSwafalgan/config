@@ -9,7 +9,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (load-theme 'gruber-darker t)
-(set-frame-font "Comic Mono 18" nil t)
+(set-frame-font "Jetbrains Mono 18" nil t)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (setq inhibit-startup-screen t)
@@ -17,9 +17,10 @@
 
 (add-to-list 'backup-directory-alist (cons "." "~/.emacs.d/backups/"))
 
-(global-set-key [f4] 'compile)
-(global-set-key [f5] 'recompile)
+(global-set-key [f4] (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key [f5] (lambda() (interactive) (find-file "~/Documents")))
 (global-set-key [f9] 'eglot)
+
 (global-set-key (kbd "C-S-c") 'mc/edit-lines)
 
 (with-eval-after-load 'eglot
