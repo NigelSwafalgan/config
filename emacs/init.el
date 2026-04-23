@@ -11,13 +11,13 @@
 (load-theme 'gruber-darker t)
 (set-frame-font "Jetbrains Mono 18" nil t)
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.config/emacs/custom.el")
 (setq inhibit-startup-screen t)
 (setq c-basic-offset 4)
 
-(add-to-list 'backup-directory-alist (cons "." "~/.emacs.d/backups/"))
+(add-to-list 'backup-directory-alist (cons "." "~/.config/emacs/backups/"))
 
-(global-set-key [f4] (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key [f4] (lambda() (interactive) (find-file "~/config/emacs/init.el")))
 (global-set-key [f5] (lambda() (interactive) (find-file "~/Documents")))
 (global-set-key [f9] 'eglot)
 
