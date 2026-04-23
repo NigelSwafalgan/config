@@ -5,36 +5,46 @@ bat = "---"
 bat_full = "==="
 bat_charging = "+++"
 
+[theme.overrides]
+separator = ";"
+
 [[block]]
 block = "focused_window"
-format = "$title.str(max_w:50) | "
+format = "$title.str(max_w:100)|"
 
 [[block]]
 block = "cpu"
 interval = 2
-format = "$utilization1 $utilization2 $utilization3 $utilization4 $utilization5 $utilization6 $utilization7 $utilization8 $utilization9 $utilization10 $utilization11 $utilization12 $utilization13 $utilization14 $utilization15 $utilization16 "
+format = "$barchart $max_frequency.eng(p:M,force_prefix:true)"
+
+[[block]]
+block = "temperature"
+format = "$average"
+interval = 2
+chip = "coretemp-isa-0000"
 
 [[block]]
 block = "memory"
-format = " MEM $mem_used_percents "
+format = "MEM $mem_used_percents $mem_used.eng(p:M,force_prefix:true)"
 interval = 2
 
 [[block]]
 block = "memory"
-format = " SWAP $swap_used_percents "
+format = "SWP $swap_used_percents"
 interval = 2
 
 [[block]]
 block = "battery"
 driver = "upower"
-format = "$power $icon $percentage $time "
+format = "$power $icon $percentage $time"
 interval = 4
 
 [[block]]
 block = "sound"
 step_width = 3
+format = "$icon{$volume|}"
 
 [[block]]
 block = "time"
 interval = 1
-format = " $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S') "
+format = "$timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S', l:fr_CH)"
